@@ -1,7 +1,15 @@
+:root
+{
+	--bg-color:             #22252a;
+	--secondary-bg-color:   #202020;
+	--fg-color:             white;
+	--accent-color:         orange;
+}
+
 body,
 html
 {
-	background-color: #22252a !important
+	background-color: var( --bg-color ) !important
 }
 
 .navbar
@@ -11,13 +19,13 @@ html
 
 .nav-tabs > li.active > a
 {
-	border-top: 2px solid orange !important
+	border-top: 2px solid var( --accent-color ) !important
 }
 
 .nav-tabs a
 {
 	background-color: #2d3035 !important;
-	color:            white !important;
+	color:            var( --fg-color ) !important;
 }
 
 .nav-tabs > li > a
@@ -28,7 +36,7 @@ html
 
 .nav-tabs a:hover
 {
-	background-color: #212326 !important;
+	background-color: var( --secondary-bg-color ) !important;
 	color:            #fafafa !important
 }
 
@@ -36,7 +44,7 @@ html
 {
 	background-color: #fff;
 	color:            #4c8fbd;
-	border-color:     #212326;
+	border-color:     var( --secondary-bg-color );
 }
 
 .nav-list:hover,
@@ -46,7 +54,7 @@ html
 .skin-3 .nav-list > li.active,
 .skin-3 .nav-list > li.active + li
 {
-	border-color: #212326 !important;
+	border-color: var( --secondary-bg-color ) !important;
 }
 
 .dropdown-toggle
@@ -56,11 +64,11 @@ html
 
 .dropdown-toggle:hover
 {
-	background-color: #212326 !important
+	background-color: var( --secondary-bg-color ) !important
 }
 
 .dropdown-menu,
-.menu-text,
+.menu-min .menu-text,
 .skin-3 .infobox-container .infobox:not(.infobox-dark), .skin-3 .nav-list li.active > a::before
 {
 	background-color: #2d3035 !important
@@ -79,7 +87,7 @@ html
 
 .dropdown-menu li.active:hover > a, .dropdown-menu li.active > a, .dropdown-menu li:hover > a, .dropdown-menu li > a:active, .dropdown-menu li > a:focus
 {
-	background-color: orange !important;
+	background-color: var( --accent-color ) !important;
 	color:            #f0f0f0 !important
 }
 
@@ -113,12 +121,12 @@ html
 
 .skin-3 .nav-list > li > a:hover, .skin-3 .nav-list > li.active > a:hover
 {
-	border-color: #212326 !important;
+	border-color: var( --secondary-bg-color ) !important;
 }
 
 .main-content, .page-content, .main-container, .main-container:before, .main-container.container:before, .skin-3 .main-container:before
 {
-	background:       #22252a !important;
+	background:       var( --bg-color ) !important;
 }
 
 .footer
@@ -129,24 +137,24 @@ html
 .footer-content
 {
 	background-color: #282828 !important;
-	border-top:       1px dotted orange !important
+	border-top:       1px dotted var( --accent-color ) !important
 }
 
 .label
 {
-	background-color: orange !important;
-	color:            white;
+	background-color: var( --accent-color ) !important;
+	color:            var( --fg-color );
 	padding:          3px 10px;
 }
 
 .label:before
 {
-	border-right-color: orange !important
+	border-right-color: var( --accent-color ) !important
 }
 
 .label.arrowed-in-right:after
 {
-	border-color:       orange !important;
+	border-color:       var( --accent-color ) !important;
 	border-right-color: transparent !important
 }
 
@@ -162,12 +170,12 @@ html
 .breadcrumb > li.active,
 .breadcrumbs .nav-search-icon
 {
-	color: white !important
+	color: var( --fg-color ) !important
 }
 
 .breadcrumbs .nav-recent
 {
-	color:   orange !important;
+	color:   var( --accent-color ) !important;
 }
 
 .breadcrumbs .nav-search-input
@@ -214,12 +222,12 @@ html
 .widget-body
 {
 	background-color: transparent !important;
-	color:            white !important
+	color:            var( --fg-color ) !important
 }
 
 .widget-body .table a
 {
-	color:       orange !important;
+	color:       var( --accent-color ) !important;
 	font-weight: bold;
 }
 
@@ -237,20 +245,20 @@ html
 .widget-body .table th
 {
 	background-color: #2d3035 !important;
-	color:            white !important;
+	color:            var( --fg-color ) !important;
 	border:           0 #fff !important;
 }
 
 .widget-body .table
 {
 	background-color: #2d3035 !important;
-	color:            white !important;
+	color:            var( --fg-color ) !important;
 	border:           0 #fff !important;
 }
 
 .widget-body .table-striped > tbody > tr
 {
-	background-color: #22252a !important;
+	background-color: var( --bg-color ) !important;
 }
 
 .table-bordered > tbody > tr > td,
@@ -273,7 +281,7 @@ html
 {
 	background-color: #292b2f !important;
 	border-bottom:    1px solid #2d3035 !important;
-	color:            #fff !important;
+	color:            var( --fg-color ) !important;
 }
 
 .buglist-headers
@@ -324,7 +332,7 @@ html
 
 .widget-toolbox
 {
-	background-color: #212326 !important;
+	background-color: var( --secondary-bg-color ) !important;
 	border:           0 transparent !important;
 }
 
@@ -374,19 +382,19 @@ select
 {
 	background-color: #bbb !important;
 	border-color:     #bbb !important;
-	color:            white;
+	color:            var( --fg-color );
 }
 
 .nav-list a:hover .menu-text,
 .nav-list a:hover .menu-icon
 {
-	color:            orange !important;
+	color:            var( --accent-color ) !important;
 }
 
 .nav-list li.active > a:before, .skin-3 .nav-list > li li.active > a:before, .skin-3 .nav-list > li > a li.active > a:before, .skin-3 .nav-list > li.active > a li.active > a:before
 {
 	color:              rgba(0, 0, 0, 0) !important;
-	border-right-color: orange !important
+	border-right-color: var( --accent-color ) !important
 }
 
 .nav-list > li:before,
@@ -402,7 +410,7 @@ select
 .skin-3 .nav-list > li.active:before,
 .skin-3 .nav-list > li.active + li:before
 {
-	background-color: orange !important
+	background-color: var( --accent-color ) !important
 }
 
 .skin-3 .sidebar.menu-min .nav-list > li > a > .menu-text
@@ -412,7 +420,7 @@ select
 
 .skin-3 .nav-list > li.active, .skin-3 .nav-list > li.active + li
 {
-	border-color: #212326 !important;
+	border-color: var( --secondary-bg-color ) !important;
 }
 
 .skin-3 .nav-list > li:hover + li
@@ -433,28 +441,28 @@ select
 
 .arrow::after
 {
-	border-right-color: orange !important
+	border-right-color: var( --accent-color ) !important
 }
 
 .menu-text
 {
-	color:            white !important;
+	color:            var( --fg-color ) !important;
 }
 
 .sidebar-toggle, .skin-3 .sidebar-toggle
 {
 	background-color: inherit !important;
 	border-color:     #3c3c3c !important;
-	color:            orange !important;
+	color:            var( --accent-color ) !important;
 	border-bottom:    0 !important;
 	padding:          20px 0 !important;
 }
 
 .sidebar-toggle > .ace-icon, .skin-3 .sidebar-toggle > .ace-icon
 {
-	background-color: #212326 !important;
-	border-color:     orange !important;
-	color:            orange !important
+	background-color: var( --secondary-bg-color ) !important;
+	border-color:     var( --accent-color ) !important;
+	color:            var( --accent-color ) !important
 }
 
 .sidebar-toggle:before, .skin-3 .sidebar-toggle:before
@@ -465,7 +473,7 @@ select
 .well
 {
 	background-color: #646464 !important;
-	color:            white;
+	color:            var( --fg-color );
 }
 
 .color-global
@@ -475,12 +483,12 @@ select
 
 tr.spacer
 {
-	background-color: #22252a !important;
+	background-color: var( --bg-color ) !important;
 }
 
 td.category, tr.bugnote .bugnote-note
 {
-	background-color: #22252a !important;
+	background-color: var( --bg-color ) !important;
 	color:            #b1b1b1 !important;
 }
 
@@ -497,7 +505,7 @@ span.required
 .bootstrap-datetimepicker-widget, .bootstrap-datetimepicker-widget *
 {
 	background-color: #323232 !important;
-	color:            #fff !important
+	color:            var( --fg-color ) !important
 }
 
 .bootstrap-datetimepicker-widget td.day:hover, .bootstrap-datetimepicker-widget span.month:hover, .bootstrap-datetimepicker-widget span.year:hover
@@ -514,8 +522,8 @@ span.required
 {
 	border:           0 !important;
 	background-color: #2d3035 !important;
-	color:            white !important;
-	border-bottom:    1px solid #22252a !important;
+	color:            var( --fg-color ) !important;
+	border-bottom:    1px solid var( --bg-color ) !important;
 }
 
 .skin-3 .breadcrumbs
@@ -545,29 +553,29 @@ span.required
 
 a
 {
-	color: orange !important;
+	color: var( --accent-color ) !important;
 }
 
 .ace-nav > li.grey > a
 {
-	color: white !important;
+	color: var( --fg-color ) !important;
 }
 
 .nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus
 {
 	background-color: #2d3035 !important;
-	color:            #fff !important;
+	color:            var( --fg-color ) !important;
 }
 
 .nav-tabs > li.active > a
 {
-	border-color: orange #2d3035 transparent !important;
+	border-color: var( --accent-color ) #2d3035 transparent !important;
 }
 
 .nav-tabs
 {
 	border-bottom:       0 solid #2d3035 !important;
-	border-bottom-color: rgb(45, 48, 53);
+	border-bottom-color: #2d3035;
 }
 
 .nav-tabs > li > a, .nav-tabs > li > a:focus
@@ -589,9 +597,9 @@ textarea.form-control,
 input.form-control,
 .dropzone
 {
-	background-color: #22252a !important;
-	color:            #fff !important;
-	border:           1px solid #22252a !important;
+	background-color: var( --bg-color ) !important;
+	color:            var( --fg-color ) !important;
+	border:           1px solid var( --bg-color ) !important;
 }
 
 input[type="file"]
@@ -621,13 +629,13 @@ a i
 
 .white
 {
-	color: white !important;
+	color: var( --fg-color ) !important;
 }
 
 .widget-header .white:hover
 {
 	text-decoration: underline;
-	color:           white !important;
+	color:           var( --fg-color ) !important;
 }
 
 .widget-title .badge
@@ -638,13 +646,13 @@ a i
 .skin-3 .nav-list > li.active.highlight > a, .skin-3 .nav-list > li.active > a,
 .sidebar.compact .nav-list > li > a:hover
 {
-	background-color: #212326 !important;
-	border-color:     #212326 !important;
+	background-color: var( --secondary-bg-color ) !important;
+	border-color:     var( --secondary-bg-color ) !important;
 }
 
 .sidebar.compact .nav-list > li > a > .menu-icon
 {
-	color: #fff !important;
+	color: var( --fg-color ) !important;
 }
 
 .nav-list:hover, .skin-3 .nav-list > li:hover, .skin-3 .nav-list > li > a:hover, .skin-3 .nav-list > li.active > a:hover
@@ -659,14 +667,10 @@ a i
 	display: none;
 }
 
-.ace-nav > li > a > .ace-icon
-{
-	color: white !important;
-}
-
+.ace-nav > li > a > .ace-icon,
 .navbar .navbar-brand
 {
-	color: white !important;
+	color: var( --fg-color ) !important;
 }
 
 .navbar

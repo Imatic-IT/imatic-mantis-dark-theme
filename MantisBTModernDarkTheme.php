@@ -10,7 +10,7 @@ extends MantisPlugin
 		$this->name = 'MantisBT Modern Dark Theme';
 		$this->description = 'A clean and dark theme for MantisBT.';
 
-		$this->version = '2.0.0';
+		$this->version = '2.0.1';
 		$this->requires = array(
 			'MantisCore' => '2.0.0',
 		);
