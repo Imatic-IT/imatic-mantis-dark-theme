@@ -99,9 +99,8 @@ html
 .btn.btn-white, .btn-primary, .btn.btn-white.btn-primary
 {
 	background-color: #5b626f !important;
-	border:           0 transparent !important;
+	border-color:     transparent !important;
 	color:            #fafafa !important;
-	padding:          3px 12px !important;
 }
 
 .btn.btn-white.active,
@@ -219,65 +218,76 @@ html
 	background-color: #fff !important
 }
 
-.widget-body
+.widget-body,
+.widget-main
 {
 	background-color: transparent !important;
 	color:            var( --fg-color ) !important
 }
 
-.widget-body .table a
+.widget-body .table a,
+.widget-main .table a
 {
 	color:       var( --accent-color ) !important;
 	font-weight: bold;
 }
 
-.widget-body .table a.tagi-brighter
+.widget-body .table a.tagi-brighter,
+.widget-main .table a.tagi-brighter
 {
 	color:       #babaff !important;
 	font-weight: bold
 }
 
-.widget-body .table a.btn
+.widget-body .table a.btn,
+.widget-main .table a.btn
 {
 	color: #fafafa !important
 }
 
-.widget-body .table th
+.widget-body .table th,
+.widget-main .table th
 {
 	background-color: #2d3035 !important;
 	color:            var( --fg-color ) !important;
 	border:           0 #fff !important;
 }
 
-.widget-body .table
+.widget-body .table,
+.widget-main .table
 {
 	background-color: #2d3035 !important;
 	color:            var( --fg-color ) !important;
 	border:           0 #fff !important;
 }
 
-.widget-body .table-striped > tbody > tr
+.widget-body .table-striped > tbody > tr,
+.widget-main .table-striped > tbody > tr
 {
 	background-color: var( --bg-color ) !important;
 }
 
 .table-bordered > tbody > tr > td,
-.widget-body .table td
+.widget-body .table td,
+.widget-main .table td
 {
 	border: 1px solid #3c3c3c !important
 }
 
-.widget-body .table thead
+.widget-body .table thead,
+.widget-main .table thead
 {
 	background-color: #505050 !important
 }
 
-.widget-body .table thead tr
+.widget-body .table thead tr,
+.widget-main .table thead tr
 {
 	background-color: inherit !important
 }
 
-.widget-body .table thead tr td
+.widget-body .table thead tr td,
+.widget-main .table thead tr td
 {
 	background-color: #292b2f !important;
 	border-bottom:    1px solid #2d3035 !important;
@@ -289,28 +299,33 @@ html
 	border-bottom: 1px solid silver !important;
 }
 
-.widget-body .fa-pencil
+.widget-body .fa-pencil,
+.widget-main .fa-pencil
 {
 	color: #d2d2d2 !important
 }
 
-.widget-body .table-responsive
+.widget-body .table-responsive,
+.widget-main .table-responsive
 {
 	background-color: #fff !important;
 	color:            #4a4a4a !important
 }
 
-.widget-body .table-striped > tbody > tr:nth-of-type(odd)
+.widget-body .table-striped > tbody > tr:nth-of-type(odd),
+.widget-main .table-striped > tbody > tr:nth-of-type(odd)
 {
 	background-color: transparent !important
 }
 
-.widget-body .table-striped > tbody > tr:hover
+.widget-body .table-striped > tbody > tr:hover,
+.widget-main .table-striped > tbody > tr:hover
 {
 	background-color: #42454a !important
 }
 
-.widget-body .profile-activity
+.widget-body .profile-activity,
+.widget-main .profile-activity
 {
 	border-color: transparent !important
 }
