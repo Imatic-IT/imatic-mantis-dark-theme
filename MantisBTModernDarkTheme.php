@@ -23,10 +23,10 @@ extends MantisPlugin
 	{
 		return array(
 			'EVENT_LAYOUT_RESOURCES' => 'add_css',
-
 			'EVENT_ACCOUNT_PREF_UPDATE_FORM' => 'account_update_form',
 			'EVENT_ACCOUNT_PREF_UPDATE' => 'account_update',
-		);
+            'EVENT_MENU_MAIN' => 'menu_main_hook',
+        );
 	}
 
 	function add_css( $p_event )
@@ -56,4 +56,17 @@ extends MantisPlugin
 	{
 		config_set( self::CFG_ENABLED, gpc_get_bool( self::CFG_ENABLED, false ), $p_user_id, ALL_PROJECTS );
 	}
+
+
+    public function menu_main_hook()
+    {
+        return [
+            [
+                'title' => 'Dark Mode',
+                'url' => plugin_page('toggleDarkmode'),
+                'icon' => $this->is_enabled() ? 'fa-toggle-on' : 'fa-toggle-off',
+            ]
+        ];
+    }
+
 }
