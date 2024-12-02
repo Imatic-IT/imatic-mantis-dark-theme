@@ -1,9 +1,9 @@
 <?php
 
-class MantisBTModernDarkThemePlugin
+class ImaticMantisDarkThemePlugin
 extends MantisPlugin
 {
-	const CFG_ENABLED = 'plugin_MantisBTModernDarkTheme_enabled';
+	const CFG_ENABLED = 'plugin_ImaticMantisDarkTheme_enabled';
 
 	function register()
 	{
@@ -15,8 +15,8 @@ extends MantisPlugin
 			'MantisCore' => '2.0.0',
 		);
 
-		$this->author = 'Simone Tellini';
-		$this->url = 'https://github.com/wiz78/MantisBTModernDarkTheme';
+		$this->author = 'Simone Tellini & Imatic software';
+		$this->url = 'https://github.com/Imatic-IT/imatic-mantis-dark-theme';
 	}
 
 	function hooks()
