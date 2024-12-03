@@ -31,22 +31,8 @@ class ImaticMantisDarkThemePlugin extends MantisPlugin
         return array(
             'EVENT_ACCOUNT_PREF_UPDATE_FORM' => 'account_update_form',
             'EVENT_ACCOUNT_PREF_UPDATE' => 'account_update',
-            'EVENT_MENU_MAIN' => 'menu_main_hook',
             'EVENT_LAYOUT_BODY_END' => 'layout_body_end_hook',
         );
-    }
-
-
-    public function menu_main_hook()
-    {
-        return [
-            [
-                'title' => 'Dark Mode',
-                'url' => plugin_page('toggleDarkmode'),
-                'icon' => $this->is_enabled() ? 'fa-toggle-on' : 'fa-toggle-off',
-                'access_level' => DEVELOPER,
-            ]
-        ];
     }
 
     function is_enabled()
