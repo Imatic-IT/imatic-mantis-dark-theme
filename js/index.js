@@ -4,7 +4,6 @@ $(document).ready(function () {
         if (el == null) {
             return;
         }
-
         return JSON.parse(el.dataset.data);
     }
 
@@ -17,42 +16,46 @@ $(document).ready(function () {
         const tooltip = settings.tooltip;
 
         const toggleButton = `
-    <li id="darkmode-toggler" title="${tooltip}">
-                <input type="checkbox" class="checkbox" id="checkbox">
-            <label for="checkbox" class="checkbox-label">
-                <i class="fa fa-moon-o" aria-hidden="true"></i>
-                <i class="fa fa-sun-o" aria-hidden="true"></i>
-                <span class="ball"></span>
-            </label>
-        </li>
-    `;
-
+            <li id="darkmode-icons" title="${tooltip}">
+                <a href="/plugin.php?page=ImaticMantisDarkTheme/toggleDarkmode" id="darkmode-toggler" style="display: flex; align-items: center;">
+                    <div style="text-align: center; margin-right: 10px;">
+                        <i class="fa" id="darkmode-icon" aria-hidden="true" style="font-size: 20px; color: #f39c12;"></i>
+                    </div>
+                    <div>
+                        <i class="menu-icon fa fa-toggle-off" style="font-size: 20px; display: flex; align-items: center; margin-bottom: 4px;">
+                        </i>
+                    </div>
+                </a>
+                <b class="arrow"></b>
+            </li>
+        `;
         $navbarButtons.append(toggleButton);
 
-        if (darkmode === true) {
-            $('#checkbox').prop('checked', true);
-        }
+        const $darkModeIcon = $('#darkmode-icon');
+        const $toggleIcon = $('#darkmode-toggler .fa-toggle-off');
 
-        const $icon = $('#darkmode-toggler .fa');
-        if (darkmode === true) {
-            $icon.removeClass('fa-sun-o').addClass('fa-moon-o');
-            $icon.css('color', '#f39c12');
+        if (darkmode) {
+            $darkModeIcon.addClass('fa-moon-o').removeClass('fa-sun-o');
+            $toggleIcon.addClass('fa-toggle-on').removeClass('fa-toggle-off');
         } else {
-            $icon.removeClass('fa-moon-o').addClass('fa-sun-o');
-            $icon.css('color', '#f39c12');
+            $darkModeIcon.addClass('fa-sun-o').removeClass('fa-moon-o');
+            $toggleIcon.addClass('fa-toggle-off').removeClass('fa-toggle-on');
         }
 
-        $('#checkbox').on('change', function () {
-            const isChecked = $('#checkbox').prop('checked');
-            if (isChecked) {
-                $icon.removeClass('fa-sun-o').addClass('fa-moon-o');
-            } else {
-                $icon.removeClass('fa-moon-o').addClass('fa-sun-o');
-            }
-            $icon.css('color', '#f39c12');
-        });
+        $('#darkmode-toggler').on('click', function (e) {
+            e.preventDefault();
 
-        $('#darkmode-toggler').on('click', function () {
+            const newDarkmodeState = !darkmode; // Opačný stav
+            const url = $(this).attr('href');
+
+            if (newDarkmodeState) {
+                $darkModeIcon.addClass('fa-moon-o').removeClass('fa-sun-o');
+                $toggleIcon.addClass('fa-toggle-on').removeClass('fa-toggle-off');
+            } else {
+                $darkModeIcon.addClass('fa-sun-o').removeClass('fa-moon-o');
+                $toggleIcon.addClass('fa-toggle-off').removeClass('fa-toggle-on');
+            }
+
             window.location.href = url;
         });
     }

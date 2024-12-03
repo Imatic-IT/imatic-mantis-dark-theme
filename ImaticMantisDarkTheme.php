@@ -36,6 +36,19 @@ class ImaticMantisDarkThemePlugin extends MantisPlugin
         );
     }
 
+
+    public function menu_main_hook()
+    {
+        return [
+            [
+                'title' => 'Dark Mode',
+                'url' => plugin_page('toggleDarkmode'),
+                'icon' => $this->is_enabled() ? 'fa-toggle-on' : 'fa-toggle-off',
+                'access_level' => DEVELOPER,
+            ]
+        ];
+    }
+
     function is_enabled()
     {
         return auth_is_user_authenticated() && config_get(self::CFG_ENABLED, false, auth_get_current_user_id(), ALL_PROJECTS);;

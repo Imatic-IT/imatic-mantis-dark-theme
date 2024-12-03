@@ -41,15 +41,17 @@
     transform: translateX(24px);
 }
 
-
+#darkmode-icons a{
+    background-color: #555;
+}
 
 /* Tooltip Style */
-#darkmode-toggler[title] {
+#darkmode-icons[title] {
     position: relative;
 }
 
 /* Tooltip */
-#darkmode-toggler[title]:hover::after {
+#darkmode-icons[title]:hover::after {
     content: attr(title);
     position: absolute;
     top: 40px;
@@ -68,7 +70,7 @@
     transition-delay: 0s;
 }
 
-#darkmode-toggler[title]:not(:hover)::after {
+#darkmode-icons[title]:not(:hover)::after {
     visibility: hidden;
     opacity: 0;
 }
