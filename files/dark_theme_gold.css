@@ -718,7 +718,7 @@ a i
 	color:	#4a4a4a !important;
 }
 
-.table-hover > tbody > tr:hover 
+.table-hover > tbody > tr:hover
 {
 	background-color: #626262;
 }

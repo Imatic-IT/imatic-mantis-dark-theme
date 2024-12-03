@@ -1,0 +1,19 @@
+{
+  "name": "imaticmantisdarktheme",
+  "version": "1.0.0",
+  "description": "![MantisBTModernDarkTheme Screenshot](files/MantisBTModernDarkTheme_Screenshot.png)",
+  "main": "index.js",
+  "scripts": {
+    "build-sass": "sass styles.scss styles.css",
+    "watch-sass": "sass --watch .:.",
+    "build": "webpack -p",
+    "build:watch": "webpack -p --devtool inline-sourcemap --watch"
+  },
+  "dependencies": {
+    "sortablejs": "^1.10.2",
+    "webpack": "^4.41.6",
+    "webpack-cli": "^3.3.11"
+  },
+  "author": "",
+  "license": "ISC"
+}
