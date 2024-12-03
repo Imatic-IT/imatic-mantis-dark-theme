@@ -2,6 +2,7 @@
 
 $s_plugin_ImaticMantisDarkTheme_title = 'MantisBT Dark Theme';
 $s_plugin_ImaticMantisDarkTheme_description = 'A dark theme with different options for Mantis Bug Tracker.';
+$s_plugin_ImaticMantisDarkTheme_tooltip = 'You can select your theme in Account > Preferences.';
 
 $s_plugin_ImaticMantisDarkTheme_config_menu_option = 'Color-option';
 $s_plugin_ImaticMantisDarkTheme_config = 'Config';

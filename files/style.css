@@ -42,3 +42,33 @@
 }
 
 
+
+/* Tooltip Style */
+#darkmode-toggler[title] {
+    position: relative;
+}
+
+/* Tooltip */
+#darkmode-toggler[title]:hover::after {
+    content: attr(title);
+    position: absolute;
+    top: 40px;
+    left: -105%;
+    transform: translateX(-50%);
+    background-color: #333;
+    color: #fff;
+    padding: 0 2px;
+    border-radius: 5px;
+    font-size: 12px;
+    white-space: nowrap;
+    opacity: 1;
+    visibility: visible;
+    z-index: 9999;
+    transition: opacity 0.2s ease-in-out;
+    transition-delay: 0s;
+}
+
+#darkmode-toggler[title]:not(:hover)::after {
+    visibility: hidden;
+    opacity: 0;
+}

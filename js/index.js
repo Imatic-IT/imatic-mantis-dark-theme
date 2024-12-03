@@ -9,13 +9,16 @@ $(document).ready(function () {
     }
 
     const settings = getSettings();
-    const url = settings.url;
-    const darkmode = settings.darkmode;
-    const $navbarButtons = $('.navbar-buttons .nav');
 
-    const toggleButton = `
-        <li id="darkmode-toggler">
-            <input type="checkbox" class="checkbox" id="checkbox">
+    if (settings) {
+        const url = settings.url;
+        const darkmode = settings.darkmode;
+        const $navbarButtons = $('.navbar-buttons .nav');
+        const tooltip = settings.tooltip;
+
+        const toggleButton = `
+    <li id="darkmode-toggler" title="${tooltip}">
+                <input type="checkbox" class="checkbox" id="checkbox">
             <label for="checkbox" class="checkbox-label">
                 <i class="fa fa-moon-o" aria-hidden="true"></i>
                 <i class="fa fa-sun-o" aria-hidden="true"></i>
@@ -24,32 +27,33 @@ $(document).ready(function () {
         </li>
     `;
 
-    $navbarButtons.append(toggleButton);
+        $navbarButtons.append(toggleButton);
 
-    if (darkmode === true) {
-        $('#checkbox').prop('checked', true);
-    }
+        if (darkmode === true) {
+            $('#checkbox').prop('checked', true);
+        }
 
-    const $icon = $('#darkmode-toggler .fa');
-    if (darkmode === true) {
-        $icon.removeClass('fa-sun-o').addClass('fa-moon-o');
-        $icon.css('color', '#f39c12');
-    } else {
-        $icon.removeClass('fa-moon-o').addClass('fa-sun-o');
-        $icon.css('color', '#f39c12');
-    }
-
-    $('#checkbox').on('change', function () {
-        const isChecked = $('#checkbox').prop('checked');
-        if (isChecked) {
+        const $icon = $('#darkmode-toggler .fa');
+        if (darkmode === true) {
             $icon.removeClass('fa-sun-o').addClass('fa-moon-o');
+            $icon.css('color', '#f39c12');
         } else {
             $icon.removeClass('fa-moon-o').addClass('fa-sun-o');
+            $icon.css('color', '#f39c12');
         }
-        $icon.css('color', '#f39c12');
-    });
 
-    $('#darkmode-toggler').on('click', function () {
-        window.location.href = url;
-    });
+        $('#checkbox').on('change', function () {
+            const isChecked = $('#checkbox').prop('checked');
+            if (isChecked) {
+                $icon.removeClass('fa-sun-o').addClass('fa-moon-o');
+            } else {
+                $icon.removeClass('fa-moon-o').addClass('fa-sun-o');
+            }
+            $icon.css('color', '#f39c12');
+        });
+
+        $('#darkmode-toggler').on('click', function () {
+            window.location.href = url;
+        });
+    }
 });

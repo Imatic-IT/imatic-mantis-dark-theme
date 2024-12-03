@@ -73,6 +73,7 @@ class ImaticMantisDarkThemePlugin extends MantisPlugin
         $t_data = htmlspecialchars(json_encode([
             'url' => plugin_page('toggleDarkmode'),
             'darkmode' => $this->is_enabled(),
+            'tooltip' => plugin_lang_get('tooltip')
 
         ]));
 
