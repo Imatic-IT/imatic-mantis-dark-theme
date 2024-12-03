@@ -32,20 +32,19 @@ $(document).ready(function () {
 
     const $icon = $('#darkmode-toggler .fa');
     if (darkmode === true) {
-        $icon.removeClass('fa-moon-o').addClass('fa-sun-o');
+        $icon.removeClass('fa-sun-o').addClass('fa-moon-o');
         $icon.css('color', '#f39c12');
     } else {
-        $icon.removeClass('fa-sun-o').addClass('fa-moon-o');
+        $icon.removeClass('fa-moon-o').addClass('fa-sun-o');
         $icon.css('color', '#f39c12');
     }
 
     $('#checkbox').on('change', function () {
         const isChecked = $('#checkbox').prop('checked');
-
         if (isChecked) {
-            $icon.removeClass('fa-moon-o').addClass('fa-sun-o');
-        } else {
             $icon.removeClass('fa-sun-o').addClass('fa-moon-o');
+        } else {
+            $icon.removeClass('fa-moon-o').addClass('fa-sun-o');
         }
         $icon.css('color', '#f39c12');
     });

@@ -7,7 +7,7 @@ class ImaticMantisDarkThemePlugin extends MantisPlugin
 
     function register()
     {
-        $this->name = 'MantisBT Modern Dark Theme';
+        $this->name = 'ImaticMantisDarkTheme';
         $this->description = 'A clean and dark theme for MantisBT.';
 
         $this->version = '2.1.0';
@@ -67,18 +67,6 @@ class ImaticMantisDarkThemePlugin extends MantisPlugin
     }
 
 
-    public function menu_main_hook()
-    {
-        return [
-            [
-                'title' => 'Dark Mode',
-                'url' => plugin_page('toggleDarkmode'),
-                'icon' => $this->is_enabled() ? 'fa-toggle-on' : 'fa-toggle-off',
-                'access_level' => DEVELOPER,
-            ]
-        ];
-    }
-
     function layout_body_end_hook()
     {
 
@@ -91,8 +79,8 @@ class ImaticMantisDarkThemePlugin extends MantisPlugin
 
         echo '<script id="imaticDarkmode" data-data="' . $t_data . '" src="' . plugin_file('index.js') . '&v=' . $this->version . '"></script><link rel="stylesheet" type="text/css" href="' . plugin_file('style.css') . '&v=' . $this->version . '" />';
 
-        $selectedTheme = $this->userSelectedTheme() ?? plugin_config_get('dark_theme_option');
 
+        $selectedTheme = $this->userSelectedTheme() ? $this->userSelectedTheme() : plugin_config_get('dark_theme_option');
 
         if ($this->is_enabled()) {
 
