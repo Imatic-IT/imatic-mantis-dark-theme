@@ -42,6 +42,11 @@ class ImaticMantisDarkThemePlugin extends MantisPlugin
 
     function userSelectedTheme()
     {
+        # Guard: on pages without a real logged-in user (e.g. login_page.php)
+        # auth_get_current_user_id() triggers access_denied() in MantisBT >= 2.28 -> redirect loop.
+        if (!auth_is_user_authenticated() || current_user_is_anonymous()) {
+            return false;
+        }
         return config_get(self::CFG_THEME, false, auth_get_current_user_id(), ALL_PROJECTS);
     }
 
