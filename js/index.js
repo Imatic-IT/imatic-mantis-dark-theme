@@ -7,56 +7,61 @@ $(document).ready(function () {
         return JSON.parse(el.dataset.data);
     }
 
+    function escapeHtml(text) {
+        return $('<div>').text(text).html();
+    }
+
     const settings = getSettings();
 
     if (settings) {
-        const url = settings.url;
         const darkmode = settings.darkmode;
         const $navbarButtons = $('.navbar-buttons .nav');
-        const tooltip = settings.tooltip;
 
-        const toggleButton = `
-            <li id="darkmode-icons" title="${tooltip}">
-                <a href="/plugin.php?page=ImaticMantisDarkTheme/toggleDarkmode" id="darkmode-toggler" style="display: flex; align-items: center;">
-                    <div style="text-align: center; margin-right: 10px;">
-                        <i class="fa" id="darkmode-icon" aria-hidden="true" style="font-size: 20px; color: #f39c12;"></i>
-                    </div>
-                    <div>
-                        <i class="menu-icon fa fa-toggle-off" style="font-size: 20px; display: flex; align-items: center; margin-bottom: 4px;">
-                        </i>
-                    </div>
+        const extraItemsHtml = (settings.extraItems || []).map(function (item) {
+            return `
+                <li>
+                    <a href="${item.url}">
+                        <i class="fa ${item.icon}"></i>
+                        <span>${escapeHtml(item.label)}</span>
+                    </a>
+                </li>
+            `;
+        }).join('');
+
+        const settingsMenu = `
+            <li id="imatic-settings-menu" class="dropdown grey">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" title="${escapeHtml(settings.settingsTitle)}">
+                    <i class="fa fa-cog ace-icon fa-2x white"></i>
+                    <i class="fa fa-angle-down ace-icon bigger-110"></i>
                 </a>
-                <b class="arrow"></b>
+                <ul class="dropdown-menu dropdown-menu-right dropdown-yellow dropdown-caret dropdown-close">
+                    <li>
+                        <a href="${settings.url}" id="darkmode-toggler" title="${escapeHtml(settings.tooltip)}">
+                            <i class="fa" id="darkmode-icon" aria-hidden="true"></i>
+                            <span>${escapeHtml(settings.toggleLabel)}</span>
+                            <i class="fa fa-toggle-off pull-right" id="darkmode-toggle-icon" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    ${extraItemsHtml ? '<li class="divider"></li>' + extraItemsHtml : ''}
+                </ul>
             </li>
         `;
-        $navbarButtons.append(toggleButton);
+        $navbarButtons.append(settingsMenu);
 
         const $darkModeIcon = $('#darkmode-icon');
-        const $toggleIcon = $('#darkmode-toggler .fa-toggle-off');
+        const $toggleIcon = $('#darkmode-toggle-icon');
 
-        if (darkmode) {
-            $darkModeIcon.addClass('fa-moon-o').removeClass('fa-sun-o');
-            $toggleIcon.addClass('fa-toggle-on').removeClass('fa-toggle-off');
-        } else {
-            $darkModeIcon.addClass('fa-sun-o').removeClass('fa-moon-o');
-            $toggleIcon.addClass('fa-toggle-off').removeClass('fa-toggle-on');
+        function paintToggle(isDark) {
+            $darkModeIcon.toggleClass('fa-moon-o', isDark).toggleClass('fa-sun-o', !isDark);
+            $toggleIcon.toggleClass('fa-toggle-on', isDark).toggleClass('fa-toggle-off', !isDark);
         }
+
+        paintToggle(darkmode);
 
         $('#darkmode-toggler').on('click', function (e) {
             e.preventDefault();
-
-            const newDarkmodeState = !darkmode; // Opačný stav
-            const url = $(this).attr('href');
-
-            if (newDarkmodeState) {
-                $darkModeIcon.addClass('fa-moon-o').removeClass('fa-sun-o');
-                $toggleIcon.addClass('fa-toggle-on').removeClass('fa-toggle-off');
-            } else {
-                $darkModeIcon.addClass('fa-sun-o').removeClass('fa-moon-o');
-                $toggleIcon.addClass('fa-toggle-off').removeClass('fa-toggle-on');
-            }
-
-            window.location.href = url;
+            paintToggle(!darkmode);
+            window.location.href = $(this).attr('href');
         });
     }
 });
