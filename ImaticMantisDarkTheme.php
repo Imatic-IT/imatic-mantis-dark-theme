@@ -53,9 +53,21 @@ class ImaticMantisDarkThemePlugin extends MantisPlugin
     /**
      * Collects items other plugins contributed via EVENT_IMATIC_SETTINGS_MENU,
      * resolving labels/urls/access checks the same way the core sidebar does.
+     *
+     * Must not run for anonymous/unauthenticated visitors: layout_body_end_hook()
+     * fires on every page including login_page.php, and a contributed item
+     * resolving the current user (e.g. layout_manage_menu_link()) can trigger
+     * access_denied() from inside login_page.php's own render — which then
+     * redirects back to login_page.php with no ?return, causing an infinite
+     * redirect loop. auth_is_user_authenticated() is safe here: it only checks
+     * cookie validity and never redirects.
      */
     function settingsMenuItems()
     {
+        if ( !auth_is_user_authenticated() ) {
+            return array();
+        }
+
         $t_items = layout_plugin_menu_options_for_sidebar( event_signal( 'EVENT_IMATIC_SETTINGS_MENU' ) );
 
         $t_resolved = array();
